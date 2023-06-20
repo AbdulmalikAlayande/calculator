@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="calculator">
+  <input type="text" id="result" readonly>
+  <div class="buttons">
+    <div class="row">
+      <button onclick="appendNumber(1)">1</button>
+      <button onclick="appendNumber(2)">2</button>
+      <button onclick="appendNumber(3)">3</button>
+      <button onclick="performOperation('+')">+</button>
+    </div>
+    <div class="row">
+      <!-- Add more buttons for other numbers -->
+    </div>
+    <div class="row">
+      <!-- Add more buttons for functions (e.g., subtraction, multiplication) -->
+    </div>
+    <div class="row">
+      <button onclick="calculate()">Calculate</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentExpression = "";
+
+  function appendNumber(number) {
+    currentExpression += number;
+    updateResult();
+  }
+
+  function performOperation(operator) {
+    currentExpression += operator;
+    updateResult();
+  }
+
+  function calculate() {
+    try {
+      const result = eval(currentExpression);
+      currentExpression = result;
+      updateResult();
+    } catch (error) {
+      // Handle calculation error, e.g., display an error message
+      console.error(error);
+    }
+  }
+
+  function updateResult() {
+    document.getElementById("result").value = currentExpression;
+  }
+</script>
+
+<style>
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    width: 50px;
+    height: 50px;
+  }
+</style>
+
+</body>
+</html>

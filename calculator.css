@@ -1,0 +1,36 @@
+.calculator_main_div{
+    display: grid;
+    justify-content: center;
+    height: 700px;
+    background-color: powderblue;
+    padding: 40px;
+    border-style: solid;
+}
+#calc_p_tag{
+    font-size: 30px;
+    display: grid;
+    justify-content: center;
+}
+select{
+    height: 90px;
+    width: 400px;
+    font-size: 30px;
+}
+.addition_div{
+    background-color: bisque;
+    display: grid;
+    justify-content: center;
+}
+.addition_div input{
+    width: 290px;
+    font-size: 25px;
+}
+.calculation_buttons button{
+    width: 80px;
+    height: 50px;
+    font-size: 20px;
+}
+.calculation_buttons{
+    display: grid;
+    justify-content: center;
+}
