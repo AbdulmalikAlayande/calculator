@@ -16,12 +16,12 @@ select{
     width: 400px;
     font-size: 30px;
 }
-.addition_div{
+#addition_div{
     background-color: bisque;
     display: grid;
     justify-content: center;
 }
-.addition_div input{
+#addition_div input{
     width: 290px;
     font-size: 25px;
 }

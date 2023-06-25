@@ -127,35 +127,7 @@ function handleCombination() {
 
 }
 
-function handleAddition(){
-    let existingInput = addition_div.querySelector('input');
-    if (existingInput) {
-        addition_div.removeChild(existingInput);
-    }
-    addition_div.innerHTML = ''
-    firstInput.className = 'input_class'
-    firstInput.type = 'number'
-    addition_div.appendChild(firstInput)
-    firstInput.addEventListener('input', () => {
-        // let result = addition(parseInt(firstInput.value))
-    })
-    firstInput.focus()
-    const numberButtons = document.querySelectorAll('.calculation_buttons button[value]');
-    numberButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const currentValue = parseInt(firstInput.value || 0);
-            const buttonValue = parseInt(button.value || 0);
-            firstInput.value = currentValue + buttonValue;
-        });
-    });
-    // let calc_buttons = document.querySelectorAll('.calculation_buttons');
-    // for (let i = 0; i < calc_buttons.length; i++) {
-    //     for (let j = 0; j < calc_buttons[i].querySelectorAll('button').length; j++) {
-    //         let button = calc_buttons[i].querySelectorAll('button')[j]
-    //         listenToTheCalcButtons(button)
-    //     }
-    // }
-}
+
 
 function activateOnscreenInputButtons(){
     for (let i = 0; i < calc_buttons_div.children.length; i++) {
