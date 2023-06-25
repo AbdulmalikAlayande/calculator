@@ -1,5 +1,10 @@
 let userChoice = document.querySelector('.user_choice_selection')
 let additionInputContainer = document.getElementById('addition_div')
+// let one = document.getElementById('one')
+let inputContainer = document.createElement("input");
+inputContainer.id = "addition_input";
+
+
 userChoice.addEventListener('change', (event)=>{
     event.preventDefault();
     let selectedOption = userChoice.value;
@@ -16,29 +21,47 @@ userChoice.addEventListener('change', (event)=>{
     }})
 
 function handleAddition(){
-    let inputContainer = document.createElement("input")
     inputContainer.value = 0;
-    inputContainer.type = Number
-    additionInputContainer.appendChild(inputContainer)
-    let existingInput = addition_div.querySelector('input');
-    console.log("hello", "world")
+    inputContainer.type = Number;
+    additionInputContainer.appendChild(inputContainer);
+
 }
 
-/*
-if (existingInput) addition_div.removeChild(existingInput);
-firstInput.focus()
-addition_div.innerHTML = ''
-    firstInput.className = 'input_class'
-    firstInput.type = 'number'
-    addition_div.appendChild(firstInput)
-    firstInput.addEventListener('input', () =>{
-    })
-    const numberButtons = document.querySelectorAll('.calculation_buttons button[value]');
-    numberButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const currentValue = parseInt(firstInput.value || 0);
-            const buttonValue = parseInt(button.value || 0);
-            firstInput.value = currentValue + buttonValue;
-        });
-    });
-    */
+function showWarningToUser() {
+    let pTag = document.createElement("p")
+    pTag.textContent = "please enter a correct value"
+    pTag.style.fontWeight = "bold"
+    pTag.style.color = "red"
+    additionInputContainer.append(pTag)
+}
+
+function addition(){
+    let sum = 0
+    for (let i = 0; i < arguments.length; i++) {
+        sum+=arguments[i]
+    }
+    return sum
+}
+function addNumberToInput(button_id) {
+    let button = document.getElementById(button_id)
+    let input = document.getElementById("addition_input")
+    input.value += button.textContent
+}
+function calculateInput(equalToButton_id) {
+    let equalsButton = document.getElementById(equalToButton_id)
+    let separatedInput = inputContainer.value.split("")
+    try {
+        for (let i = 0; i < separatedInput.length; i++) {
+            let numbers_to_add = parseFloat(separatedInput[i])
+            if (isNaN(numbers_to_add)) {
+                showWarningToUser();
+                inputContainer.value = 0
+                break;
+            }
+        }
+        console.log(separatedInput)
+        inputContainer.value = eval(inputContainer.value)
+    }catch (SyntaxError){
+
+    }
+}

@@ -56,22 +56,22 @@
           <div class="calculation_buttons">
 
               <div class="button_row_1">
-                  <button value="1" name="one">1</button>
-                  <button name="two">2</button>
-                  <button name="three">3</button>
-                  <button name="plus_sign">+</button>
+                  <button onclick="addNumberToInput(id)" value="1" id="one">1</button>
+                  <button onclick="addNumberToInput(id)" id="two">2</button>
+                  <button onclick="addNumberToInput(id)" id="three">3</button>
+                  <button onclick="addNumberToInput(id)" id="plus_sign">+</button>
               </div>
               <div class="button_row_2">
-                  <button name="four">4</button>
-                  <button name="five">5</button>
-                  <button name="six">6</button>
-                  <button name="minus_sign">-</button>
+                  <button id="four">4</button>
+                  <button id="five">5</button>
+                  <button id="six">6</button>
+                  <button id="minus_sign">-</button>
               </div>
               <div class="button_row_3">
-                  <button name="seven">7</button>
-                  <button name="eight">8</button>
-                  <button name="nine">9</button>
-                  <button name="multiplication_sign">x</button>
+                  <button id="seven">7</button>
+                  <button id="eight">8</button>
+                  <button id="nine">9</button>
+                  <button id="multiplication_sign">x</button>
               </div>
               <div class="button_row_4">
                   <button name="power">power</button>
@@ -83,7 +83,7 @@
                   <button name="cos">cos</button>
                   <button name="tan">tan</button>
                   <button name="log">log</button>
-                  <button name="equal_to">=</button>
+                  <button onclick="calculateInput(id)" id="equal_to">=</button>
               </div>
           </div>
       </div>
